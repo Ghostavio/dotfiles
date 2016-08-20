@@ -1,3 +1,3 @@
-# dotfiles
+# my [.]files
 
 my dotfiles.
