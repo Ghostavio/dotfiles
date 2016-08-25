@@ -15,13 +15,21 @@ promptinit
 prompt pure
 
 #Homebrew git token
-export HOMEBREW_GITHUB_API_TOKEN="403bcbc65352f6808d43d8281696d5c7d764d7e2"
+export HOMEBREW_GITHUB_API_TOKEN="403bcbc65352f6808d43d8281696d5c7d764d7e2" # of course this is not valid
 export GITHUB_USER="ghostavio"
 
 #NVM
 export NVM_DIR="$HOME/.nvm"
 source /usr/local/opt/nvm/nvm.sh
 source /usr/local/etc/profile.d/z.sh
+
+# GPG
+if test -f ~/.gnupg/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
+  source ~/.gnupg/.gpg-agent-info
+  export GPG_AGENT_INFO
+else
+  eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
+fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
